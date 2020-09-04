@@ -8,7 +8,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import RedirectResponse
 
 THIS_DIR = os.path.dirname(__file__)
-FILE_DIR = os.path.join(THIS_DIR, 'public', 'files')
+PUBLIC_DIR = os.path.join(THIS_DIR, 'public')
+FILE_DIR = os.path.join(PUBLIC_DIR, 'files')
 app = FastAPI()
 
 @app.get("/")
@@ -19,7 +20,7 @@ async def root():
 async def get_files():
     files = []
     for f in os.listdir(FILE_DIR):
-        stats = os.stat(os.path.join(filedir, f))
+        stats = os.stat(os.path.join(FILE_DIR, f))
         files.append({
             "file": f,
             "url": "/files/" + f,
@@ -38,7 +39,7 @@ async def upload(file: UploadFile = File(...)):
             f.write(chunk)
     return {"filename": file.filename}
 
-app.mount("/", StaticFiles(directory="public"), name="public")
+app.mount("/", StaticFiles(directory=PUBLIC_DIR), name="public")
 
 @app.on_event("startup")
 async def startup_event():

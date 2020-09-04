@@ -1,1 +1,6 @@
-public/files
+.tox
+*.egg-info
+**/__pycache__
+**/public/files
+build/
+dist/

@@ -1,0 +1,11 @@
+include LICENSE
+include requirements-client.txt
+include requirements-dev.txt
+include tox.ini
+include pytest.ini
+global-exclude *.py[cod]
+# suggested
+recursive-include src *.html
+recursive-include src *.ico
+recursive-include src *.py
+recursive-include tests *.py
