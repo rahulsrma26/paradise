@@ -18,6 +18,8 @@ Requires python 3.6+
 
 ### Installing
 
+Paradise is available on [PyPi](https://pypi.org/project/paradise/) and can be easily installed using pip.
+
 ```
 pip install paradise
 ```
