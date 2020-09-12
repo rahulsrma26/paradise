@@ -14,7 +14,7 @@ These instructions will get you a server up and running on your local machine.
 
 ### Prerequisites
 
-Requires python 3.6+
+Requires: python 3.6+
 
 ### Installing
 
@@ -28,6 +28,12 @@ If you already have paradise and want to update to a newer version
 
 ```
 pip install -U paradise
+```
+
+You can get the cutting edge version directly from dev branch (this can be unstable)
+
+```
+python -m pip install git+https://github.com/rahulsrma26/paradise
 ```
 
 ## Running
