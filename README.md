@@ -33,7 +33,7 @@ pip install -U paradise
 You can get the cutting edge version directly from dev branch (this can be unstable)
 
 ```
-python -m pip install git+https://github.com/rahulsrma26/paradise
+pip install git+https://github.com/rahulsrma26/paradise
 ```
 
 ## Running
