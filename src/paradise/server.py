@@ -16,6 +16,13 @@ app = FastAPI()
 async def root():
     return RedirectResponse("index.html")
 
+def calc_size(n):
+    i, ext = 0, ' KMGTP'
+    while n > 1024:
+        n /= 1024
+        i += 1
+    return f"{n:0.2f} {ext[i]}b"
+
 @app.get("/files/")
 async def get_files():
     files = []
@@ -24,7 +31,7 @@ async def get_files():
         files.append({
             "file": f,
             "url": "/files/" + f,
-            "size": f"{stats.st_size//1000}K",
+            "size": calc_size(stats.st_size),
             "date": time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(stats.st_mtime))
         })
     return files
