@@ -1,6 +1,9 @@
 develop:
 	uvicorn src.paradise.server:app --reload --port 8000
 
+run:
+	uvicorn src.paradise.server:app --reload --port 8000 --host 0.0.0.0
+
 clean:
 	rm -rf src/paradise.egg-info
 	rm -rf build
