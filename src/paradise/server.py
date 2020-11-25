@@ -3,18 +3,25 @@
 import os
 import time
 import socket
-from fastapi import FastAPI, File, UploadFile
+from fastapi import FastAPI, File, UploadFile, Request
 from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
 from fastapi.responses import RedirectResponse
 
 THIS_DIR = os.path.dirname(__file__)
 PUBLIC_DIR = os.path.join(THIS_DIR, 'public')
+TEMPLATE_DIR = os.path.join(THIS_DIR, 'template')
 FILE_DIR = os.path.join(PUBLIC_DIR, 'files')
+VERSION = open(os.path.join(THIS_DIR, '__version__.py')).readline()
+
 app = FastAPI()
+templates = Jinja2Templates(directory=TEMPLATE_DIR)
 
 @app.get("/")
-async def root():
-    return RedirectResponse("index.html")
+async def root(request: Request):
+    return templates.TemplateResponse(
+        "index.html", {"request": request, "VERSION": VERSION})
+    # return RedirectResponse("index.html")
 
 def calc_size(n):
     i, ext = 0, ' KMGTP'

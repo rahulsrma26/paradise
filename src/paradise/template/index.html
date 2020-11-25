@@ -14,7 +14,7 @@
     <div class="container-fluid">
         <div class="jumbotron text-center">
             <h1>Paradise</h1>
-            <p>Local intranet</p>
+            <p>Local intranet v {{VERSION}}</p>
         </div>
 
         <form enctype="multipart/form-data">
@@ -38,15 +38,15 @@
                 <thead>
                     <tr>
                         <th v-for="elem in header" scope="col">
-                            {{elem}}
+                            %=elem=%
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="val in rows">
-                        <td><a v-bind:href="''+val.url+''" download>{{val['file']}}</a></td>
-                        <td>{{val['size']}}</td>
-                        <td>{{val['date']}}</td>
+                        <td><a v-bind:href="''+val.url+''" download>%=val['file']=%</a></td>
+                        <td>%=val['size']=%</td>
+                        <td>%=val['date']=%</td>
                     </tr>
                 </tbody>
             </table>
@@ -56,6 +56,7 @@
 </body>
 <script>
     var dataTable = new Vue({
+        delimiters: ['%=', '=%'],
         el: '#fileTable',
         data: {
             header: [],

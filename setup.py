@@ -27,7 +27,7 @@ def get_requirements(filename):
     ]
 
 setup(
-    version='0.2.1',
+    version='0.3.0',
     # package_data={
     #     'code_faster': ['sample/**/*'],
     # },
