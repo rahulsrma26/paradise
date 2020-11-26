@@ -1,5 +1,7 @@
 # Paradise
 
+![Upload Python Package](https://github.com/rahulsrma26/paradise/workflows/Upload%20Python%20Package/badge.svg)
+
 A file sharing and media streaming solution for local networks. Using this utility you can start a local server on your machine that is visible to other devices like mobile, laptop etc. Which can be used to download/upload files from other machines.
 
 ![preview](https://github.com/rahulsrma26/paradise/raw/dev/docs/img/preview.png)
